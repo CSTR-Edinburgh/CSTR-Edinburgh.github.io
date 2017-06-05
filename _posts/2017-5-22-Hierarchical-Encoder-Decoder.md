@@ -18,10 +18,12 @@ particularly important in this case. Both objective measures and results from su
 listeners to focus on prosody, show that the proposed method performs significantly better than a conventional architecture 
 that requires the linguistic input to be at the acoustic frame rate.
 
-We'll provide code and a recipe to enable our system to be 
-reproduced using the [Merlin toolkit](https://github.com/CSTR-Edinburgh/merlin).
+Below is the schematic diagram of a hierarchical encoder-decoder for SPSS. The lower part of the network is the hierarchical encoder, with each layer operating at a particular linguistic level, and phone-level recurrence as its final encoded output. The upper part of the network is the decoder, generating speech parameters using frame-level recurrence. Solid black lines indicate the propagation of hidden activations between layers, and dashed colored lines indicate the injection of linguistic features at the appropriate level. The patterns of connections between word, syllable and phone layers is determined by the known linguistic structure of the current utterance. Each block of green units represents a phone, with the number of units corresponding to its duration in frames (although not drawn to scale).
 
 ![Hierarchical encoder-decoder model]({{ site.baseurl }}/images/2017-5-22-hed-encoder-decoder.png
 "Schematic diagram of a hierarchical encoder-decoder for SPSS")
+
+We'll soon provide code and a recipe to enable our system to be 
+reproduced using the [Merlin toolkit](https://github.com/CSTR-Edinburgh/merlin).
 
 Link to paper: [http://srikanthr.in/interspeech_2017_paper.pdf](http://srikanthr.in/interspeech_2017_paper.pdf)
