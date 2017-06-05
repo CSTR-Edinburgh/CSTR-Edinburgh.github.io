@@ -6,7 +6,7 @@ The intention of the blog is to showcase our projects, e.g. an abstract plus a f
 
 ## Creating a new post
 1. Go to the `_posts` [directory](https://github.com/CSTR-Edinburgh/CSTR-Edinburgh.github.io/tree/master/_posts)
-2. Click /Create new file/
+2. Click *Create new file*
 3. Include the header below, and modify its title and the body:
 4. Save in the format `year-month-day-title.md`
 
@@ -21,7 +21,7 @@ Your content goes here.
 ```
 
 ## Images
-- Place images in `CSTR-Edinburgh.github.io/images/`. I.e. you can go [here](https://github.com/CSTR-Edinburgh/CSTR-Edinburgh.github.io/tree/master/images) and click /Upload files/
+- Place images in `CSTR-Edinburgh.github.io/images/`. I.e. you can go [here](https://github.com/CSTR-Edinburgh/CSTR-Edinburgh.github.io/tree/master/images) and click *Upload files*
 - Preface image filenames by the filename of your blog post, e.g.:
 `year-month-day-title-imagename.png`
 - Include them in your text by:  `![an image alt text]({{ site.baseurl }}/images/year-month-day-title-imagename.png "an image title")`
