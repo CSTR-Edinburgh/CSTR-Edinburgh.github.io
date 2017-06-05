@@ -19,7 +19,7 @@ that requires the linguistic input to be at the acoustic frame rate.
 We'll provide code and a recipe to enable our system to be 
 reproduced using the [Merlin toolkit](https://github.com/CSTR-Edinburgh/merlin).
 
-![Hierarchical encoder-decoder model]({{ https://cstr-edinburgh.github.io/ }}/images/2017-5-22-hed-encoder-decoder.png
-"Schematic diagram of a hierarchical encoder-decoder for SPSS.")
+![Hierarchical encoder-decoder model]({{ site.baseurl }}/images/2017-5-22-hed-encoder-decoder.png
+"Schematic diagram of a hierarchical encoder-decoder for SPSS")
 
 Link to paper: [http://srikanthr.in/interspeech_2017_paper.pdf](http://srikanthr.in/interspeech_2017_paper.pdf)
