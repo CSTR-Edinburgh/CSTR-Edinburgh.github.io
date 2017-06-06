@@ -1,6 +1,6 @@
 ---
 layout: post
-title: A Hierarchical Encoder-Decoder Model
+title: A hierarchical encoder-decoder model for SPSS
 author: Srikanth Ronanki
 ---
 
