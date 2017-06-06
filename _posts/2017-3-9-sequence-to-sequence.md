@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Sequence-to-Sequence Models for Punctuated Transcription Combining Lexical and Acoustic Features
+author: Ondrej Klejch
 ---
 
 In this paper we present an extension of our previously described neural machine translation based system for punctuated
