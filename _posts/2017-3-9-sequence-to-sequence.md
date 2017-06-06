@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Sequence-to-sequence models for punctuated transcription combining lexical and acoustic features
+title: Sequence-to-sequence models for punctuated transcription
 author: Ondrej Klejch
 ---
 
