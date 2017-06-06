@@ -10,8 +10,8 @@ Founded in 1984, CSTR is concerned with research in all areas of speech technolo
 
 ### More Information
 
-For more information, visit [cstr main site](http://www.cstr.ed.ac.uk/). 
+For more information, visit [CSTR home page](http://www.cstr.ed.ac.uk/). 
 
-### Contact me
+### Contact Us
 
-[contact](http://www.cstr.ed.ac.uk/contact/)
+[contact CSTR](http://www.cstr.ed.ac.uk/contact/)
