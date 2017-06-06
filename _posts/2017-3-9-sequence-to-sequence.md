@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Sequence-to-Sequence Models for Punctuated Transcription Combining Lexical and Acoustic Features
+title: Sequence-to-sequence models for punctuated transcription combining lexical and acoustic features
 author: Ondrej Klejch
 ---
 
@@ -14,4 +14,5 @@ improvement in F-Measure of 1.5 absolute over the purely lexical neural machine 
 ![Hierarchical encoder]({{ site.baseurl }}/images/2017-3-9-hierarchical-encoder.png
 " Illustration of a hierarchical encoder encoding per frame acoustic features to word level features.")
 
-Link to paper: [http://homepages.inf.ed.ac.uk/s1569734/papers/icassp-2017.pdf](http://homepages.inf.ed.ac.uk/s1569734/papers/icassp-2017.pdf)
+Further details can be found in the paper:
+* Klejch, O., Bell, P., and Renals, S. (2017) [Sequence-to-sequence models for punctuated transcription combining lexical and acoustic features](http://homepages.inf.ed.ac.uk/s1569734/papers/icassp-2017.pdf), In Proc. ICASSP. New Orleans, USA. March 2017.
