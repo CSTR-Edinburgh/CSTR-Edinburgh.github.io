@@ -21,18 +21,21 @@ In general, we observe that the more discretization approaches, acoustic signals
 and levels of linguistic analysis are incorporated into a TTS system via these count-based representations, 
 the better that TTS system performs.
 
-In the figure below, the co-occurrence count matrix is populated by taking counts of acoustic
-classes *C* and textual objects such as words. 
+In the figure below, the co-occurrence count matrix is populated by taking counts of acoustic classes *C* and textual objects such as words. 
 This example uses a window of size *w = 3*. 
-For all instances of the word token house, we take counts of the co-occurring acoustic event *c_j* and its neighboring events *c_i* and *c_k* . 
+For all instances of the word token *house*, we take counts of the co-occurring acoustic event *c_j* and its neighboring events *c_i* and *c_k* . 
 Note that the word tokens co-occurring with *house* do not participate in the count vectors.
-Only the co-occurring acoustic tokens.
-Each of the 3 sub-vectors of house is then normalized by the total number of counts.
+Only the co-occurring acoustic tokens are considered.
+Each of the 3 sub-vectors of *house* is then normalized by the total number of counts.
 We then reduce the dimensionality of the normalized count matrix by finding the Singular Value Decomposition
-(SVD) of the matrix and taking the top left singular vectors.
+(SVD) of the matrix and taking its top left singular vectors.
+
+
 
 ![co-occurence matrix example]({{ site.baseurl }}/images/2017-06-06-count-representations.png
 "co-occurence matrix")
+
+
 
 Further details can be found in the paper:
 * Ribeiro, M.S., Watts, O., and Yamagishi, J. (2017) [Learning word vector representations based on acoustic counts](http://homepages.inf.ed.ac.uk/s1250520/docs/ribeiro-et-al-interspeech17.pdf), In Proc. Interspeech. Stockholm, Sweden. August 2017. *To Appear*.
