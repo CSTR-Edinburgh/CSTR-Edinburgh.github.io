@@ -15,6 +15,7 @@ Boilerplate header:
 ---
 layout: post
 title: Modify this title.
+author: Your Name
 ---
 
 Your content goes here.

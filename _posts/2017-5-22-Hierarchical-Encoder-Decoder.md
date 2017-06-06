@@ -1,6 +1,7 @@
 ---
 layout: post
 title: A Hierarchical Encoder-Decoder Model
+author: Srikanth Ronanki
 ---
 
 Current approaches to statistical parametric speech synthesis using Neural Networks generally 
