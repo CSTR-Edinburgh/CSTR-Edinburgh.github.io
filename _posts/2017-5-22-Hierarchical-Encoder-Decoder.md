@@ -27,4 +27,6 @@ Below is the schematic diagram of a hierarchical encoder-decoder for SPSS. The l
 We'll soon provide code and a recipe to enable our system to be 
 reproduced using the [Merlin toolkit](https://github.com/CSTR-Edinburgh/merlin).
 
-Link to paper: [http://srikanthr.in/interspeech_2017_paper.pdf](http://srikanthr.in/interspeech_2017_paper.pdf)
+Further details can be found in the paper:
+* Ronanki, S., Watts, O., and King, S. (2017) [A Hierarchical Encoder-Decoder Model for Statistical Parametric Speech Synthesis](http://srikanthr.in/interspeech_2017_paper.pdf), In Proc. Interspeech. Stockholm, Sweden. August 2017. *To Appear*.
+
