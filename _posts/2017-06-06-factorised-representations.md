@@ -10,7 +10,7 @@ Speciﬁcally, we extract bottleneck features from networks trained to classify 
 
 The figure below demonstrates the effect of factorising speaker i-vectors. The coloured clusters on the left indicate environments. By extracting bottleneck features from a network learned to classify speakers given i-vectors, the knowledge of environments is largely factored out (right).
 
-![t-SNE of bottleneck features]({{ site.baseurl }}/images/2017-06-06-factorised_ivectors.pdf
+![t-SNE of bottleneck features]({{ site.baseurl }}/images/2017-06-06-factorised_ivectors.png
 " t-SNE visualisation of i-vectors before and after factorisation.")
 
 Further details can be found in the paper:
