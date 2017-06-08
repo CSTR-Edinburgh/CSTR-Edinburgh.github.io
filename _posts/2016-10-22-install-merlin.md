@@ -15,7 +15,7 @@ There are two ways to download Merlin:
 - Using terminal or command-line prompt
     * git clone https://github.com/CSTR-Edinburgh/merlin.git
 - Using browser
-    * Go to [Merlin](https://github.com/CSTR-Edinburgh/merlin) and click **Clone or download** button
+    * Go to [Merlin](https://github.com/CSTR-Edinburgh/merlin) and click _Clone or download_ button
     
 Installation
 ------------
@@ -37,7 +37,7 @@ To install Merlin succesfully, we have to:
 * virtualenv \-\-distribute \-\-python=/usr/bin/python2.7 p27
 * source p27/bin/activate
 
-#### Install some tools required for **lxml** installation
+#### Install some tools required for _lxml_ installation
 
 * Create a directory for tools 
     * mkdir Tools
@@ -58,7 +58,7 @@ To install Merlin succesfully, we have to:
 
 * pip install numpy scipy matplotlib theano
 
-#### export some paths to install **lxml** and **bandmat**
+#### export some paths to install _lxml_ and _bandmat_
 
 * For bandmat
     * export C_INCLUDE_PATH=$C_INCLUDE_PATH:~/myproject/p27/lib/python2.7/site-packages/numpy/core/include
