@@ -35,7 +35,7 @@ To install Merlin succesfully, we have to:
     $ cd ~/myproject
 
 #### Creating python virtual environment
-    $ virtualenv \-\-distribute \-\-python=/usr/bin/python2.7 p27
+    $ virtualenv --distribute --python=/usr/bin/python2.7 p27
     $ source p27/bin/activate
 
 #### Install some tools required for _lxml_ installation
@@ -50,7 +50,7 @@ To install Merlin succesfully, we have to:
     $ cd libxslt-1.1.29
 ##### Install
     $ mkdir build
-    $ ./configure \-\-prefix=/Users/test/myproject/Tools/libxslt-1.1.29/build **(change path)**
+    $ ./configure --prefix=/Users/test/myproject/Tools/libxslt-1.1.29/build **(change path)**
     $ make
     $ make install
 
