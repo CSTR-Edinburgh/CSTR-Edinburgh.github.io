@@ -14,13 +14,14 @@ Download
 There are two ways to download Merlin: 
 ##### 1. Using terminal or command-line prompt
     $ git clone https://github.com/CSTR-Edinburgh/merlin.git
+
 ##### 2. Using browser
 * Go to [Merlin](https://github.com/CSTR-Edinburgh/merlin) and click _Clone or download_ button
     
 Installation
 ------------
 To install Merlin succesfully, we have to:
-1. Follow the instructions in the **tools/INSTALL** file
+1. Follow the instructions in the [tools/INSTALL](https://github.com/CSTR-Edinburgh/merlin/blob/master/tools/INSTALL) file
 2. Install some Python dependencies
 
 ### Step1: Install tools in Merlin
