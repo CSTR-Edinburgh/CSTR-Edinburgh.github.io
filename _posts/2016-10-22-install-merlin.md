@@ -14,7 +14,7 @@ Download
 There are two ways to download Merlin: 
 #### 1. Using terminal or command-line prompt
     $ git clone https://github.com/CSTR-Edinburgh/merlin.git 
-<br/>
+
 #### 2. Using browser
 * Go to [Merlin](https://github.com/CSTR-Edinburgh/merlin) and click _Clone or download_ button
     
