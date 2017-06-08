@@ -42,15 +42,18 @@ To install Merlin succesfully, we have to:
 ##### Create workspace
     $ mkdir Tools
     $ cd Tools
+    
 ##### Download libxslt library:
     $ wget ftp://xmlsoft.org/libxml2/libxslt-1.1.29.tar.gz
     $ curl -L -O ftp://xmlsoft.org/libxml2/libxslt-1.1.29.tar.gz (for Mac)
+    
 ##### Unzip files
     $ tar xvzf libxslt-1.1.29.tar.gz
     $ cd libxslt-1.1.29
+    
 ##### Install
     $ mkdir build
-    $ ./configure --prefix=/Users/test/myproject/Tools/libxslt-1.1.29/build **(change path)**
+    $ ./configure --prefix=/Users/test/myproject/Tools/libxslt-1.1.29/build (change path)
     $ make
     $ make install
 
