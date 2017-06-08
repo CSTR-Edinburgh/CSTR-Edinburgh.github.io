@@ -19,16 +19,25 @@ There are two ways to download Merlin:
     
 Installation
 ------------
+To install Merlin succesfully, we have to:
+1. Follow the instructions in the **tools/INSTALL** file
+2. Install some Python dependencies
+
+### Step1: Install tools in Merlin
+* cd merlin/tools
+* ./compile_tools.sh
+
+### Step2: Install Python dependencies
 * First, let's create a directory to work:
     * mkdir ~/myproject
     * cd ~/myproject
 
-### Creating python virtual environment
+#### Creating python virtual environment
 
 * virtualenv \-\-distribute \-\-python=/usr/bin/python2.7 p27
 * source p27/bin/activate
 
-### Install some tools required for **lxml** installation
+#### Install some tools required for **lxml** installation
 
 * Create a directory for tools 
     * mkdir Tools
@@ -45,11 +54,11 @@ Installation
     * make
     * make install
 
-### Install python libraries
+#### Install python libraries
 
 * pip install numpy scipy matplotlib theano
 
-### export some paths to install **lxml** and **bandmat**
+#### export some paths to install **lxml** and **bandmat**
 
 * For bandmat
     * export C_INCLUDE_PATH=$C_INCLUDE_PATH:~/myproject/p27/lib/python2.7/site-packages/numpy/core/include
