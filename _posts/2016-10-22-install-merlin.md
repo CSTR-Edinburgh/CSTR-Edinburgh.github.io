@@ -72,3 +72,9 @@ To install Merlin succesfully, we have to:
 
 ##### Install
     $ pip install bandmat lxml
+
+Great! We have now downloaded and compiled Merlin along with all its necessary dependencies! Hurrayy!!
+
+### Now let’s go on to run the demo.
+    $ cd merlin/egs/slt_arctic/s1
+    $ ./run_demo.sh
