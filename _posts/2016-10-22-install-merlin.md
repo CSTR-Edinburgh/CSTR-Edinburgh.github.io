@@ -33,8 +33,16 @@ To install Merlin succesfully, we have to:
 #### Create working space
     $ mkdir ~/myproject
     $ cd ~/myproject
+    
+#### Try creating python virtual environment from global-site
+    $ virtualenv --system-site-packages --python=/usr/bin/python2.7 p27
+    $ source p27/bin/activate
+    $ pip install numpy scipy matplotlib lxml bandmat theano
 
-#### Creating python virtual environment
+If you have successfully installed all the python libraries, 
+skip the below steps or else try below approach:
+
+#### Creating python virtual environment 
     $ virtualenv --distribute --python=/usr/bin/python2.7 p27
     $ source p27/bin/activate
 
