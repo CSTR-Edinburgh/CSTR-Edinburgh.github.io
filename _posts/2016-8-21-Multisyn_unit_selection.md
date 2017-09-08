@@ -17,67 +17,69 @@ To build a new voice with Festival Multisyn, follow the step-by-step procedure g
 
 ## Step-by-step procedure
 
-### 0. Install tools
+### 1. Install tools
 
 You might be familiar with most of these tools, but there are some differences in the way we setup these tools. 
 
 - A version of [speech tools](http://www.cstr.ed.ac.uk/downloads/festival/2.4/speech_tools-2.4-with-wrappers.tar.gz) with python wrappers has to be installed in order to work with Multisyn.
-- Latest version of [Festival](http://tts.speech.cs.cmu.edu/awb/for_gcc6/festival-2.5.0-current.tar.gz) has to be installed in order to use hybrid unit selection. 
+- Latest version of [Festival](http://104.131.174.95/downloads/tools/festival-2.4-current.tar.gz) has to be installed in order to use hybrid unit selection. 
 
-Therefore, we recommend installing a fresh copy of these tools following the [scripts provided in Merlin](https://github.com/CSTR-Edinburgh/merlin/tree/master/tools). 
+Therefore, we recommend installing a fresh copy of these tools following the [scripts provided in Merlin](https://github.com/CSTR-Edinburgh/merlin/blob/master/tools/compile_unit_selection_tools.sh). 
 
 To install speech tools, Festival and Multisyn:
 
 ```bash
-bash merlin/tools/compile_cstr_speech_tools.sh
+bash compile_unit_selection_tools.sh
 ```
 
 To install HTK:
 
 ```bash
-bash merlin/tools/compile_htk.sh
+bash compile_htk.sh
 ```
 
 Make sure you install all these tools without any errors and check environment variables before proceeding further. 
 
-### 1. setup
+### 2. setup
 
 At this point, make sure you have data ready:
 
-- a [directory containing audio files](http://festvox.org/cmu_arctic/cmu_arctic/cmu_us_slt_arctic/wav/) with file extension `.wav` 
-- a [text file](http://festvox.org/cmu_arctic/cmu_arctic/cmu_us_slt_arctic/etc/txt.done.data) with transcriptions in the typical festival format.
+- a [directory containing audio files](http://festvox.org/cmu_arctic/cmu_arctic/cmu_us_awb_arctic/wav/) with file extension `.wav` 
+- a [text file](http://festvox.org/cmu_arctic/cmu_arctic/cmu_us_awb_arctic/etc/txt.done.data) with transcriptions in the typical festival format.
 
-For demo purpose, we use [SLT corpus from CMU Arctic Corpus](http://festvox.org/cmu_arctic/cmu_arctic/packed/cmu_us_slt_arctic-0.95-release.zip). 
+For demo purpose, we use [AWB corpus from CMU Arctic Corpus](http://festvox.org/cmu_arctic/cmu_arctic/packed/cmu_us_awb_arctic-0.95-release.zip). 
 
 Let's setup a directory for model building:
 
 ```bash
-mkdir cstr_slt_multisyn
-cd cstr_fls_multisyn
+mkdir cstr_edi_awb_multisyn
+cd cstr_edi_awb_multisyn
 source $MULTISYN_BUILD/multisyn_build.sh
 $MULTISYN_BUILD/bin/setup
 $MULTISYN_BUILD/bin/setup_alignment
 ```
 
-### 2. Prepare initial labels
+### 3. Prepare initial labels
+
+We'll be using unilex lexicon to prepare labels which can be freely obtained by signing a license from [here](http://www.cstr.ed.ac.uk/projects/unisyn).
 
 ```bash
 $MULTISYN_BUILD/bin/make_initial_phone_labs utts.data utts.mlf unilex-rpx postlex_rules my_lexicon.scm
 ```
 
-### 3. Add noise
+### 4. Add noise
 
 ```bash
 $MULTISYN_BUILD/bin/add_noise wav utts.data
 ```
 
-### 4. Prepare MFCC
+### 5. Prepare MFCC
 
 ```bash
 $MULTISYN_BUILD/bin/make_mfccs alignment wav utts.data
 ```
 
-### 5. Force-alignment
+### 6. Force-alignment
 
 ```bash
 cd alignment
@@ -88,23 +90,23 @@ cd..
 $MULTISYN_BUILD/bin/break_mlf alignment/aligned.4.mlf lab
 ```
 
-### 6. Extract pitchmarks 
+### 7. Extract pitchmarks 
 
 ```bash
 $MULTISYN_BUILD/bin/make_pm_wave -f pm wav utts.data
 $MULTISYN_BUILD/bin/make_pm_fix pm utts.data
 ```
 
-### 7. Find power factors
+### 8. Find power factors
 
 ```bash
 $MULTISYN_BUILD/bin/find_powerfactors lab utts.data
 $MULTISYN_BUILD/bin/make_wav_powernorm wav_fn wav utts.data
 ```
 
-Repeat steps 3-7 with normalized audio files `wav_fn`
+Repeat steps 4-8 with normalized audio files `wav_fn`
 
-### 8. Mark bad energy phones
+### 9. Mark bad energy phones
 
 ```bash
 $MULTISYN_BUILD/bin/make_frame_ene utts.data
@@ -112,40 +114,40 @@ $MULTISYN_BUILD/bin/Get_lr_ene utts.data
 $MULTISYN_BUILD/bin/Flag_bad_energy utts.data
 ```
 
-### 9. Calculate duration
+### 10. Calculate duration
 
 ```bash
 $MULTISYN_BUILD/bin/phone_lengths dur lab utts.data
 ```
 
-### 10. Build utts
+### 11. Build utts
 
 ```bash
-$MULTISYN_BUILD/bin/build_utts utts.data combilex-rpx postlex_rules
+$MULTISYN_BUILD/bin/build_utts utts.data unilex-rpx postlex_rules
 ```
 
-### 11. Final alignment
+### 12. Final alignment
 
 ```bash
 cd alignment
-$MULTISYN_BUILD/bin/do_final_alignment ../utts.data combilex-rpx ../postlex_rules n
+$MULTISYN_BUILD/bin/do_final_alignment ../utts.data unilex-rpx ../postlex_rules n
 cd ..
 ```
 
-### 12. Compute F0
+### 13. Compute F0
 
 ```bash
 $MULTISYN_BUILD/bin/make_f0 -f wav_fn utts.data
 ```
 
-### 13. Prepare coefs
+### 14. Prepare coefs
 
 ```bash
 $MULTISYN_BUILD/bin/make_norm_join_cost_coefs coef f0 mfcc utts.data
 $MULTISYN_BUILD/bin/strip_join_cost_coefs coef coef_stripped utt utts.data
 ```
 
-### 14. Prepare lpc
+### 15. Prepare lpc
 
 ```bash
 $MULTISYN_BUILD/bin/make_lpc wav utts.data  ## as LPC extraction code does internal normalization
@@ -153,15 +155,26 @@ $MULTISYN_BUILD/bin/make_lpc wav utts.data  ## as LPC extraction code does inter
 
 ## Build unit-selection model
 
+Setup voice directory in Festival:
 ```bash
-cp -r wav_fn voices/unilex/cstr_edi_slt_multisyn/slt/wav
-cp -r coef voices/unilex/cstr_edi_slt_multisyn/slt/coef 
-cp -r f0  voices/unilex/cstr_edi_slt_multisyn/slt/f0
-cp -r pm  voices/unilex/cstr_edi_slt_multisyn/slt/pm
-cp -r utt  voices/unilex/cstr_edi_slt_multisyn/slt/utt
+mkdir $FESTDIR/lib/voices/english/cstr_edi_awb_multisyn
+mkdir $FESTDIR/lib/voices/english/cstr_edi_awb_multisyn/awb
+mkdir $FESTDIR/lib/voices/english/cstr_edi_awb_multisyn/awb/festvox
+```
 
-cp -r fls_pauses.data voices/unilex/cstr_edi_slt_multisyn/slt/
-cp -r utts.data voices/unilex/cstr_edi_slt_multisyn/slt/
+Copy required files into the voice directory:
+```bash
+cp -r wav_fn $FESTDIR/lib/voices/english/cstr_edi_awb_multisyn/awb/wav
+cp -r coef $FESTDIR/lib/voices/english/cstr_edi_awb_multisyn/awb/coef 
+cp -r f0 $FESTDIR/lib/voices/english/cstr_edi_awb_multisyn/awb/f0
+cp -r pm $FESTDIR/lib/voices/english/cstr_edi_awb_multisyn/awb/pm
+cp -r utt $FESTDIR/lib/voices/english/cstr_edi_awb_multisyn/awb/utt
+cp -r utts.data $FESTDIR/lib/voices/english/cstr_edi_awb_multisyn/awb/utts.data
+```
+
+Copy pauses from `multisyn_build/resources/pauses` into the respective directories e.g.,
+```bash
+cp -r awb_pauses.data $FESTDIR/lib/voices/unilex/cstr_edi_awb_multisyn/awb/
 ```
 
 ## Synthesis with Festival
@@ -173,7 +186,7 @@ $FESTDIR/bin/festival
 Make festival speak "Hello world!" with new voice:
 
 ```bash
-festival> (voice_cstr_edi_slt_multisyn)
+festival> (voice_cstr_edi_awb_multisyn)
 festival> (SayText "Hello world!")
 festival> (utt.save.wave (utt.synth (Utterance Text "Hello world!" )) "hello_world.wav")
 ```
