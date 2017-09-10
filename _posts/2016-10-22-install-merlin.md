@@ -25,10 +25,12 @@ To install Merlin succesfully, we have to:
 2. Install some Python dependencies
 
 ### Step1: Install tools in Merlin
-    $ cd merlin/tools
-    $ ./compile_tools.sh
+    $ bash tools/compile_tools.sh
 
 ### Step2: Install Python dependencies
+    $ pip install -r requirements.txt
+
+If you are looking for some instructions on using python virtual environment, please follow below steps:
 
 #### Create working space
     $ mkdir ~/myproject
@@ -37,7 +39,7 @@ To install Merlin succesfully, we have to:
 #### Try creating python virtual environment from global-site
     $ virtualenv --system-site-packages --python=/usr/bin/python2.7 p27
     $ source p27/bin/activate
-    $ pip install numpy scipy matplotlib lxml bandmat theano
+    $ pip install numpy scipy matplotlib bandmat theano
 
 If you have successfully installed all the python libraries, 
 skip the below steps or else try below approach:
@@ -45,6 +47,9 @@ skip the below steps or else try below approach:
 #### Creating python virtual environment 
     $ virtualenv --distribute --python=/usr/bin/python2.7 p27
     $ source p27/bin/activate
+
+_lxml_ is no longer required for Merlin. But, in case, if you are using OSSIAN and looking for some instructions, 
+please follow below steps:
 
 #### Install some tools required for _lxml_ installation
 ##### Create workspace
