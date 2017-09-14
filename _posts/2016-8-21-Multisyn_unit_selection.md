@@ -47,7 +47,15 @@ At this point, make sure you have data ready:
 - a [directory containing audio files](http://festvox.org/cmu_arctic/cmu_arctic/cmu_us_awb_arctic/wav/) with file extension `.wav` 
 - a [text file](http://festvox.org/cmu_arctic/cmu_arctic/cmu_us_awb_arctic/etc/txt.done.data) with transcriptions in the typical festival format.
 
-For demo purpose, we use [AWB corpus from CMU Arctic Corpus](http://festvox.org/cmu_arctic/cmu_arctic/packed/cmu_us_awb_arctic-0.95-release.zip). 
+For demo purpose, we use [AWB corpus from CMU Arctic Database](http://festvox.org/cmu_arctic/cmu_arctic/packed/cmu_us_awb_arctic-0.95-release.zip). 
+
+Let's create a working directory and download the AWB corpus:
+
+```bash
+mkdir multisyn_voice
+wget http://festvox.org/cmu_arctic/cmu_arctic/packed/cmu_us_awb_arctic-0.95-release.zip
+unzip -q cmu_us_awb_arctic-0.95-release.zip
+```
 
 Let's setup a directory for model building:
 
@@ -56,14 +64,38 @@ mkdir cstr_edi_awb_multisyn
 cd cstr_edi_awb_multisyn
 source $MULTISYN_BUILD/multisyn_build.sh
 $MULTISYN_BUILD/bin/setup
-$MULTISYN_BUILD/bin/setup_alignment
+```
+
+Let's copy the audio files and text file:
+
+```bash
+cp ../cmu_us_awb_arctic/wav/* wav/
+cp ../cmu_us_awb_arctic/etc/txt.done.data utts.data
 ```
 
 ### 3. Prepare initial labels
 
-We'll be using unilex lexicon to prepare labels which can be freely obtained by signing a license from [here](http://www.cstr.ed.ac.uk/projects/unisyn).
+```sh
+$MULTISYN_BUILD/bin/setup_alignment
+```
+
+At this point, we have to chose a lexicon and a phoneset. The available options are:
+- CMU lexicon: can be freely obtained from [here](http://www.cstr.ed.ac.uk/downloads/festival/2.4/festlex_CMU.tar.gz)
+- Unisyn lexicon: can be freely obtained by signing a license from [here](http://www.cstr.ed.ac.uk/projects/unisyn)
+- Combilex: commercial-license can obtained from [here](http://www.cstr.ed.ac.uk/research/projects/combilex/)
+
+Based on the lexicon you have chosen, copy the files `phone_list` and `phone_substitutions` from `resources` directory in MULTISYN_BUILD.
 
 ```bash
+cp $MULTISYN_BUILD/resources/phone_list.unilex-rpx alignment/phone_list
+cp $MULTISYN_BUILD/resources/phone_substitutions.unilex-rpx alignment/phone_substitutions
+```
+
+Create postlex rules and my lexicon files before preparing initial labels. 
+
+```bash 
+echo "postlex_apos_s_check postlex_the_vs_thee postlex_intervoc_r postlex_a" > postlex_rules
+touch my_lexicon.scm
 $MULTISYN_BUILD/bin/make_initial_phone_labs utts.data utts.mlf unilex-rpx postlex_rules my_lexicon.scm
 ```
 
