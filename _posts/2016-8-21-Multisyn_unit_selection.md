@@ -82,9 +82,9 @@ $MULTISYN_BUILD/bin/setup_alignment
 At this point, we have to chose a lexicon and a phoneset. The available options are:
 - CMU lexicon: can be freely obtained from [here](http://www.cstr.ed.ac.uk/downloads/festival/2.4/festlex_CMU.tar.gz)
 - Unisyn lexicon: can be freely obtained by signing a license from [here](http://www.cstr.ed.ac.uk/projects/unisyn)
-- Combilex: commercial-license can obtained from [here](http://www.cstr.ed.ac.uk/research/projects/combilex/)
+- Combilex: has a commercial-license and can be obtained from [here](http://www.cstr.ed.ac.uk/research/projects/combilex/)
 
-Based on the lexicon you have chosen, copy the files `phone_list` and `phone_substitutions` from `resources` directory in MULTISYN_BUILD.
+Based on the lexicon you have chosen, copy the files `phone_list` and `phone_substitutions` from `resources` directory in MULTISYN_BUILD. 
 
 ```bash
 cp $MULTISYN_BUILD/resources/phone_list.unilex-rpx alignment/phone_list
@@ -124,19 +124,25 @@ $MULTISYN_BUILD/bin/break_mlf alignment/aligned.4.mlf lab
 
 ### 7. Extract pitchmarks 
 
+Based on the speaker gender (male/female), please chose the option `-m` or `-f` while extracting pitchmarks. 
+
 ```bash
-$MULTISYN_BUILD/bin/make_pm_wave -f pm wav utts.data
+$MULTISYN_BUILD/bin/make_pm_wave -m pm wav utts.data
 $MULTISYN_BUILD/bin/make_pm_fix pm utts.data
 ```
 
 ### 8. Find power factors
+
+Ideally all of the above labelling steps should probably be done with normalised waveforms. However as correct labelling is needed to normalise them, that is not possible. 
+
+If you want to normalise your waveforms then do this:
 
 ```bash
 $MULTISYN_BUILD/bin/find_powerfactors lab utts.data
 $MULTISYN_BUILD/bin/make_wav_powernorm wav_fn wav utts.data
 ```
 
-Repeat steps 4-8 with normalized audio files `wav_fn`
+Repeat steps 4-7 with normalized audio files `wav_fn`
 
 ### 9. Mark bad energy phones
 
