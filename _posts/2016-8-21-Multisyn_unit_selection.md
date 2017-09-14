@@ -159,7 +159,7 @@ Setup voice directory in Festival:
 ```bash
 mkdir $FESTDIR/lib/voices/english/cstr_edi_awb_multisyn
 mkdir $FESTDIR/lib/voices/english/cstr_edi_awb_multisyn/awb
-mkdir $FESTDIR/lib/voices/english/cstr_edi_awb_multisyn/awb/festvox
+mkdir $FESTDIR/lib/voices/english/cstr_edi_awb_multisyn/festvox
 ```
 
 Copy required files into the voice directory:
