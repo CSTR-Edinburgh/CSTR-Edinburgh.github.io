@@ -21,7 +21,7 @@ There are two ways to download Merlin:
 Installation
 ------------
 To install Merlin succesfully, we have to:
-1. Follow the instructions in the [tools/INSTALL](https://github.com/CSTR-Edinburgh/merlin/blob/master/tools/INSTALL) file
+1. Follow the instructions in the [tools/INSTALL](https://github.com/CSTR-Edinburgh/merlin/blob/master/tools/INSTALL.md) file
 2. Install some Python dependencies
 
 ### Step1: Install tools in Merlin
@@ -30,7 +30,7 @@ To install Merlin succesfully, we have to:
 ### Step2: Install Python dependencies
     $ pip install -r requirements.txt
 
-If you are looking for some instructions on using python virtual environment, please follow below steps:
+If you are not a root user and looking for some instructions on using python virtual environment, please follow below steps:
 
 #### Create working space
     $ mkdir ~/myproject
